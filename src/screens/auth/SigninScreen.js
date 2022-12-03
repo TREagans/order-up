@@ -50,11 +50,11 @@ const SigninScreen = props => {
         </View>
 
         <View style={styles.textInput2}>
-          <Animatable.View
+          {/* <Animatable.View
             animation={textInput2Focused ? '' : 'fadeInLeft'}
-            duration={400}>
-            <Fontisto name="locked" size={16} color={colors.grey4} />
-          </Animatable.View>
+            duration={400}> */}
+            <Fontisto name="locked" style={{ marginLeft: 3}} size={16} color={colors.grey4} />
+          {/* </Animatable.View> */}
 
           {/* ref allow us to refer to this TextInput as textInput2 */}
           <TextInput
@@ -65,9 +65,9 @@ const SigninScreen = props => {
             onBlur={() => setTextInput2Focused(true)}
           />
 
-          <Animatable.View
+          {/* <Animatable.View
             animation={textInput2Focused ? '' : 'fadeInLeft'}
-            duration={400}>
+            duration={400}> */}
             {showPassword ? (
               <Ionicons
                 name="eye-off"
@@ -83,7 +83,7 @@ const SigninScreen = props => {
                 onPress={() => setShowPassword(!showPassword)}
               />
             )}
-          </Animatable.View>
+          {/* </Animatable.View> */}
         </View>
 
         <TouchableOpacity style={styles.forgotPassContainer}>
