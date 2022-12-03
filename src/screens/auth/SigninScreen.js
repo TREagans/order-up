@@ -11,6 +11,7 @@ import AppInput from '../../components/AppInput';
 import * as Animatable from 'react-native-animatable';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Header from '../../components/Header';
 import {appInput, colors, params, screens} from '../../global/styles';
@@ -26,7 +27,7 @@ const SigninScreen = props => {
 
   return (
     <View>
-      <Header title="MY ACCOUNT" icon="arrowleft" />
+      <Header title="MY ACCOUNT" icon="arrtextInput2Focusedowleft" />
       <View>
         <Text style={screens.title}>Sign In</Text>
       </View>
@@ -37,20 +38,36 @@ const SigninScreen = props => {
       </View>
 
       <View>
-        <View>
+        <View style={{...styles.textInput, ...styles.textInput2}}>
+          <MCI name="email" size={18} color={colors.grey4} />
+
           {/* ref allow us to refer to this TextInput as textInput1 */}
-          <TextInput ref={textInput1} style={styles.textInput} placeholder="Email" />
+          <TextInput
+            ref={textInput1}
+            style={styles.inputTextPosition}
+            placeholder="Email"
+          />
         </View>
 
         <View style={styles.textInput2}>
-          <Animatable.View animation={true ? '' : 'fadeInLeft'} duration={400}>
+          <Animatable.View
+            animation={textInput2Focused ? '' : 'fadeInLeft'}
+            duration={400}>
             <Fontisto name="locked" size={16} color={colors.grey4} />
           </Animatable.View>
 
           {/* ref allow us to refer to this TextInput as textInput2 */}
-          <TextInput ref={textInput2} style={{width: '82%'}} placeholder="Password" />
+          <TextInput
+            ref={textInput2}
+            style={styles.inputTextPosition}
+            placeholder="Password"
+            onFocus={() => setTextInput2Focused(false)}
+            onBlur={() => setTextInput2Focused(true)}
+          />
 
-          <Animatable.View animation={true ? '' : 'fadeInLeft'} duration={400}>
+          <Animatable.View
+            animation={textInput2Focused ? '' : 'fadeInLeft'}
+            duration={400}>
             {showPassword ? (
               <Ionicons
                 name="eye-off"
@@ -132,6 +149,10 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 15,
+  },
+  inputTextPosition: {
+    flex: 1,
+    marginLeft: 10,
   },
   forgotPassContainer: {
     alignItems: 'flex-end',
