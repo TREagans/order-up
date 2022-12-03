@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react';
+
 import {
   Button,
   StyleSheet,
@@ -8,17 +9,15 @@ import {
   View,
 } from 'react-native';
 import AppInput from '../../components/AppInput';
-import * as Animatable from 'react-native-animatable';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontistoIcon from 'react-native-vector-icons/Fontisto';
+import IoniconIcon from 'react-native-vector-icons/Ionicons';
+import MCIIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Header from '../../components/Header';
 import {appInput, colors, params, screens} from '../../global/styles';
 
 const SigninScreen = props => {
   const [showPassword, setShowPassword] = useState(false);
-  const [textInput2Focused, setTextInput2Focused] = useState(false);
 
   // useRef will help us reference which textInput we're referring to
   // We can get the current state of the textInput using textInput.current
@@ -27,7 +26,7 @@ const SigninScreen = props => {
 
   return (
     <View>
-      <Header title="MY ACCOUNT" icon="arrtextInput2Focusedowleft" />
+      <Header title="MY ACCOUNT" icon="arrowleft" />
       <View>
         <Text style={screens.title}>Sign In</Text>
       </View>
@@ -39,7 +38,7 @@ const SigninScreen = props => {
 
       <View>
         <View style={{...styles.textInput, ...styles.textInput2}}>
-          <MCI name="email" size={18} color={colors.grey4} />
+          <MCIIcon name="email" size={18} color={colors.grey4} />
 
           {/* ref allow us to refer to this TextInput as textInput1 */}
           <TextInput
@@ -50,40 +49,35 @@ const SigninScreen = props => {
         </View>
 
         <View style={styles.textInput2}>
-          {/* <Animatable.View
-            animation={textInput2Focused ? '' : 'fadeInLeft'}
-            duration={400}> */}
-            <Fontisto name="locked" style={{ marginLeft: 3}} size={16} color={colors.grey4} />
-          {/* </Animatable.View> */}
+          <FontistoIcon
+            name="locked"
+            style={{marginLeft: 3}}
+            size={16}
+            color={colors.grey4}
+          />
 
           {/* ref allow us to refer to this TextInput as textInput2 */}
           <TextInput
             ref={textInput2}
             style={styles.inputTextPosition}
             placeholder="Password"
-            onFocus={() => setTextInput2Focused(false)}
-            onBlur={() => setTextInput2Focused(true)}
           />
 
-          {/* <Animatable.View
-            animation={textInput2Focused ? '' : 'fadeInLeft'}
-            duration={400}> */}
-            {showPassword ? (
-              <Ionicons
-                name="eye-off"
-                size={22}
-                color={colors.grey4}
-                onPress={() => setShowPassword(!showPassword)}
-              />
-            ) : (
-              <Ionicons
-                name="eye"
-                size={22}
-                color={colors.grey4}
-                onPress={() => setShowPassword(!showPassword)}
-              />
-            )}
-          {/* </Animatable.View> */}
+          {showPassword ? (
+            <IoniconIcon
+              name="eye-off"
+              size={22}
+              color={colors.grey4}
+              onPress={() => setShowPassword(!showPassword)}
+            />
+          ) : (
+            <IoniconIcon
+              name="eye"
+              size={22}
+              color={colors.grey4}
+              onPress={() => setShowPassword(!showPassword)}
+            />
+          )}
         </View>
 
         <TouchableOpacity style={styles.forgotPassContainer}>
@@ -102,13 +96,13 @@ const SigninScreen = props => {
       <Text style={styles.or}>OR</Text>
 
       <TouchableOpacity style={params.buttonWithIcon}>
-        <Fontisto name="facebook" size={18} color={colors.white} />
+        <FontistoIcon name="facebook" size={18} color={colors.white} />
         <Text style={params.buttonWithIconText}>Sign In With Facebook</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={{...params.buttonWithIcon, backgroundColor: colors.googleRed}}>
-        <Fontisto name="google" size={18} color={colors.white} />
+        <FontistoIcon name="google" size={18} color={colors.white} />
         <Text style={params.buttonWithIconText}>Sign In With Google</Text>
       </TouchableOpacity>
 
