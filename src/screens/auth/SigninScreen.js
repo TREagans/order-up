@@ -16,7 +16,7 @@ import MCIIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Header from '../../components/Header';
 import {appInput, colors, params, screens} from '../../global/styles';
 
-const SigninScreen = props => {
+const SigninScreen = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   // useRef will help us reference which textInput we're referring to
@@ -26,7 +26,7 @@ const SigninScreen = props => {
 
   return (
     <View>
-      <Header title="MY ACCOUNT" icon="arrowleft" />
+      <Header title="MY ACCOUNT" icon="arrowleft" navigation={navigation} />
       <View>
         <Text style={screens.title}>Sign In</Text>
       </View>

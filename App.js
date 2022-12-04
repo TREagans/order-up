@@ -2,9 +2,8 @@ import React from 'react';
 import {StyleSheet, Text, View, StatusBar} from 'react-native';
 
 import Header from './src/components/Header';
-import SigninScreen from './src/screens/auth/SigninScreen';
 import {colors} from './src/global/styles';
-import AuthHomeScreen from './src/screens/auth/AuthHomeScreen';
+import RootNavigator from './src/navigation/RootNavigator';
 
 const App = () => {
   return (
@@ -13,8 +12,7 @@ const App = () => {
         barStyle="light-content" 
         backgroundColor={colors.primary} 
       />
-      {/* <SigninScreen /> */}
-      <AuthHomeScreen />
+      <RootNavigator />
     </View>
   );
 };

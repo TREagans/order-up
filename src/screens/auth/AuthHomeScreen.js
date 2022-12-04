@@ -1,6 +1,5 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-
 import Swiper from 'react-native-swiper';
 
 import {colors, params} from '../../global/styles';
@@ -9,7 +8,7 @@ import tacos from '../../assets/tacos.jpg';
 import hamburger from '../../assets/hamburger.jpg';
 import wings from '../../assets/wings.jpg';
 
-const AuthHomeScreen = props => {
+const AuthHomeScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <View style={styles.header}>
@@ -43,7 +42,9 @@ const AuthHomeScreen = props => {
 
       <View style={{flex: 2, marginTop: 30}}>
         <View style={{marginHorizontal: 20}}>
-          <TouchableOpacity style={params.styledButton}>
+          <TouchableOpacity
+            style={params.styledButton}
+            onPress={() => navigation.navigate('Signin')}>
             <Text style={params.styledTitle}>SIGN IN</Text>
           </TouchableOpacity>
         </View>

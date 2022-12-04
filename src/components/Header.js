@@ -4,16 +4,18 @@ import ADIcon from 'react-native-vector-icons/AntDesign';
 
 import {colors, params} from '../global/styles';
 
-const Header = ({title, icon}) => {
+const Header = ({title, icon, navigation}) => {
   return (
     <View style={styles.header}>
       <View style={styles.icon}>
+
         <ADIcon
           name={icon}
           size={28}
           color={colors.white}
-          onPress={() => {}}
+          onPress={() => navigation.goBack()}
         />
+
       </View>
       <View>
         <Text style={styles.headerTitle}>{title}</Text>
