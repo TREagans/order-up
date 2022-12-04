@@ -28,6 +28,16 @@ export const params = {
     fontWeight: 'bold',
     letterSpacing: 0.3
   },
+  styledButtonOutline: {
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.primary,
+    height: 50,
+    borderRadius: 12,
+    marginTop: 30,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   buttonWithIcon: {
     flexDirection: 'row',
     alignItems: 'center',
