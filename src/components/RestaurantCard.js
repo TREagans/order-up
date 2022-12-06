@@ -12,7 +12,7 @@ import {
 import {colors} from '../global/styles';
 import Icon from './Icon';
 
-const FoodCard = ({
+const RestaurantCard = ({
   onPressFoodCard,
   businessName,
   deliveryAvailable,
@@ -129,4 +129,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FoodCard;
+export default RestaurantCard;

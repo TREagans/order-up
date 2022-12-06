@@ -17,10 +17,10 @@ import Icon from '../components/Icon';
 import MainHeader from '../components/MainHeader';
 import {colors, params} from '../global/styles';
 import {filterData, restaurantsData} from '../global/data';
-import FoodCard from '../components/FoodCard';
+import RestaurantCard from '../components/RestaurantCard';
 
-const HomeScreen = () => {
-  const [delivery, setDelivery] = useState(true);
+const HomeScreen = ({navigation}) => {
+  const [delivery, setDelivery] = useState(false);
   const [indexCheck, setIndexCheck] = useState('0');
   const [showClock, setShowClock] = useState(true);
 
@@ -60,7 +60,11 @@ const HomeScreen = () => {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => setDelivery(false)}>
+            <TouchableOpacity
+              onPress={() => {
+                setDelivery(false);
+                navigation.navigate('MapScreen');
+              }}>
               <Text
                 style={{
                   ...params.activeType,
@@ -146,7 +150,7 @@ const HomeScreen = () => {
           <Text style={params.sectionTitle}>Free Delivery: Limited Time</Text>
         </View>
 
-        {showClock && (
+        {showClock ? (
           <View
             style={{
               flexDirection: 'row',
@@ -159,14 +163,14 @@ const HomeScreen = () => {
             <CountDown
               until={8400}
               size={20}
-              onFinish={() => setShowClock(false)}
+              onFinish={() => alert('Free delivery has ended!')}
               digitStyle={{backgroundColor: colors.red, height: 40, width: 35}}
               digitTxtStyle={{color: colors.white}}
               timeToShow={['H', 'M', 'S']}
               timeLabels={{h: 'Hr', m: 'Min', s: 'Sec'}}
             />
           </View>
-        )}
+        ) : null}
 
         <View>
           <FlatList
@@ -177,7 +181,7 @@ const HomeScreen = () => {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => (
               <View style={{marginRight: 5}}>
-                <FoodCard
+                <RestaurantCard
                   businessName={item.restaurantName}
                   screenWidth={SCREEN_WIDTH * 0.8}
                   images={item.images}
@@ -206,7 +210,7 @@ const HomeScreen = () => {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => (
               <View style={{marginRight: 5}}>
-                <FoodCard
+                <RestaurantCard
                   businessName={item.restaurantName}
                   screenWidth={SCREEN_WIDTH * 0.8}
                   images={item.images}
@@ -229,7 +233,7 @@ const HomeScreen = () => {
         {restaurantsData.map(restaurant => {
           return (
             <View style={{marginTop: 10, marginBottom: 12}} key={restaurant.id}>
-              <FoodCard
+              <RestaurantCard
                 screenWidth={SCREEN_WIDTH * 0.95}
                 businessName={restaurant.restaurantName}
                 images={restaurant.images}
@@ -242,6 +246,20 @@ const HomeScreen = () => {
           );
         })}
       </ScrollView>
+
+      {delivery &&
+        // floating action button
+        <View style={styles.floatingButton}>
+          <TouchableOpacity onPress={() => navigation.navigate('MapScreen')}>
+            <Icon
+              name="location-sharp"
+              type="Ionicons"
+              size={32}
+              color={colors.primary}
+            />
+            <Text>Map</Text>
+          </TouchableOpacity>
+        </View>}
     </View>
   );
 };
@@ -319,6 +337,17 @@ const styles = StyleSheet.create({
   categoryTitle: {
     fontSize: 12,
     fontWeight: '500',
+  },
+  floatingButton: {
+    position: 'absolute',
+    bottom: 10,
+    right: 15,
+    backgroundColor: colors.white,
+    elevation: 10,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    alignItems: 'center',
   },
 });
 
