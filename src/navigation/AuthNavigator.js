@@ -4,6 +4,7 @@ import {TransitionPresets} from '@react-navigation/stack';
 
 import AuthHomeScreen from '../screens/auth/AuthHomeScreen';
 import SigninScreen from '../screens/auth/SigninScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 // creating an instance of native stack navigator
 const Stack = createNativeStackNavigator();
@@ -23,6 +24,15 @@ const AuthNavigator = () => {
       <Stack.Screen
         name="Signin"
         component={SigninScreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
+
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,

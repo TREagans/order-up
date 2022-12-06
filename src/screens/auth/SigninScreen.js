@@ -9,12 +9,10 @@ import {
   View,
 } from 'react-native';
 import AppInput from '../../components/AppInput';
-import FontistoIcon from 'react-native-vector-icons/Fontisto';
-import IoniconIcon from 'react-native-vector-icons/Ionicons';
-import MCIIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Header from '../../components/Header';
 import {appInput, colors, params, screens} from '../../global/styles';
+import Icon from '../../components/Icon';
 
 const SigninScreen = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -26,7 +24,12 @@ const SigninScreen = ({navigation}) => {
 
   return (
     <View>
-      <Header title="MY ACCOUNT" icon="arrowleft" navigation={navigation} />
+      <Header
+        title="MY ACCOUNT"
+        name="arrowleft"
+        type="AntDesign"
+        navigation={navigation}
+      />
       <View>
         <Text style={screens.title}>Sign In</Text>
       </View>
@@ -38,7 +41,12 @@ const SigninScreen = ({navigation}) => {
 
       <View>
         <View style={{...styles.textInput, ...styles.textInput2}}>
-          <MCIIcon name="email" size={18} color={colors.grey4} />
+          <Icon
+            type="MaterialCommunity"
+            name="email"
+            size={18}
+            color={colors.grey4}
+          />
 
           {/* ref allow us to refer to this TextInput as textInput1 */}
           <TextInput
@@ -49,12 +57,7 @@ const SigninScreen = ({navigation}) => {
         </View>
 
         <View style={styles.textInput2}>
-          <FontistoIcon
-            name="locked"
-            style={{marginLeft: 3}}
-            size={16}
-            color={colors.grey4}
-          />
+          <Icon type="Fontisto" name="locked" size={18} color={colors.grey4} />
 
           {/* ref allow us to refer to this TextInput as textInput2 */}
           <TextInput
@@ -64,16 +67,18 @@ const SigninScreen = ({navigation}) => {
           />
 
           {showPassword ? (
-            <IoniconIcon
+            <Icon
+              type="Ionicons"
               name="eye-off"
-              size={22}
+              size={18}
               color={colors.grey4}
               onPress={() => setShowPassword(!showPassword)}
             />
           ) : (
-            <IoniconIcon
+            <Icon
+              type="Ionicons"
               name="eye"
-              size={22}
+              size={18}
               color={colors.grey4}
               onPress={() => setShowPassword(!showPassword)}
             />
@@ -88,7 +93,10 @@ const SigninScreen = ({navigation}) => {
       </View>
 
       <View style={{marginHorizontal: 20}}>
-        <TouchableOpacity style={params.styledButton}>
+        <TouchableOpacity
+          style={params.styledButton}
+          onPress={() => navigation.navigate('HomeScreen')}
+        >
           <Text style={params.styledTitle}>SIGN IN</Text>
         </TouchableOpacity>
       </View>
@@ -96,13 +104,13 @@ const SigninScreen = ({navigation}) => {
       <Text style={styles.or}>OR</Text>
 
       <TouchableOpacity style={params.buttonWithIcon}>
-        <FontistoIcon name="facebook" size={18} color={colors.white} />
+        <Icon type="Fontisto" name="facebook" size={18} color={colors.white} />
         <Text style={params.buttonWithIconText}>Sign In With Facebook</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={{...params.buttonWithIcon, backgroundColor: colors.googleRed}}>
-        <FontistoIcon name="google" size={18} color={colors.white} />
+        <Icon type="Fontisto" name="google" size={18} color={colors.white} />
         <Text style={params.buttonWithIconText}>Sign In With Google</Text>
       </TouchableOpacity>
 

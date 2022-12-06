@@ -5,11 +5,13 @@ export const colors = {
   grey3: '#86939e',
   grey4: '#bdc6cf',
   grey5: '#e1e8ee',
+  green: '#1CC625',
   cardComment: '#86939e',
   cardBackground: '#fff',
   white: '#fff',
   facebookBlue: '#3b5998',
-  googleRed: '#de5246'
+  googleRed: '#de5246',
+  red: '#df1217'
 };
 
 export const params = {
@@ -53,6 +55,25 @@ export const params = {
     marginLeft: 10,
     fontSize: 14,
     fontWeight: 'bold'
+  },
+  activeType: {
+    paddingVertical: 6,
+    paddingHorizontal: 25,
+    borderRadius: 14,
+    fontSize: 16,
+    marginHorizontal: 15
+  },
+  inactiveType: {
+    borderColor: colors.primary,
+    backgroundColor: colors.grey5
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    backgroundColor: colors.grey5,
+    paddingVertical: 3,
+    paddingLeft: 10,
+    marginTop: 20
   }
 };
 

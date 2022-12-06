@@ -3,10 +3,6 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Swiper from 'react-native-swiper';
 
 import {colors, params} from '../../global/styles';
-import steakDinner from '../../assets/steak-dinner.jpg';
-import tacos from '../../assets/tacos.jpg';
-import hamburger from '../../assets/hamburger.jpg';
-import wings from '../../assets/wings.jpg';
 
 const AuthHomeScreen = ({navigation}) => {
   return (
@@ -21,21 +17,24 @@ const AuthHomeScreen = ({navigation}) => {
           showsButtons={true}
           autoplay={true}
           dotColor={colors.white}
-          activeDotColor={colors.primary}>
+          activeDotColor={colors.primary}
+          nextButton={<Text style={styles.buttonText}>›</Text>}
+          prevButton={<Text style={styles.buttonText}>‹</Text>}
+        >
           <View style={styles.slide1}>
-            <Image source={steakDinner} style={styles.slideImg} />
+            <Image source={require('../../assets/steak-dinner.jpg')} style={styles.slideImg} />
           </View>
 
           <View style={styles.slide2}>
-            <Image source={tacos} style={styles.slideImg} />
+            <Image source={require('../../assets/tacos.jpg')} style={styles.slideImg} />
           </View>
 
           <View style={styles.slide3}>
-            <Image source={hamburger} style={styles.slideImg} />
+            <Image source={require('../../assets/hamburger.jpg')} style={styles.slideImg} />
           </View>
 
           <View style={styles.slide4}>
-            <Image source={wings} style={styles.slideImg} />
+            <Image source={require('../../assets/wings.jpg')} style={styles.slideImg} />
           </View>
         </Swiper>
       </View>
@@ -78,6 +77,10 @@ const styles = StyleSheet.create({
     flex: 3,
     backgroundColor: colors.primary,
     justifyContent: 'center',
+  },
+  buttonText: {
+    color: colors.white,
+    fontSize: 60
   },
   slide1: {
     justifyContent: 'center',
