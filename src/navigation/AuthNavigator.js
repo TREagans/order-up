@@ -5,16 +5,16 @@ import {TransitionPresets} from '@react-navigation/stack';
 import AuthHomeScreen from '../screens/auth/AuthHomeScreen';
 import SigninScreen from '../screens/auth/SigninScreen';
 import HomeScreen from '../screens/HomeScreen';
-import MainTabNavigator from './MainTabNavigator';
 import MapScreen from '../screens/MapScreen';
+import DrawerNavigator from './DrawerNavigator';
 
 // creating an instance of native stack navigator
-const Stack = createNativeStackNavigator();
+const Auth = createNativeStackNavigator();
 
 const AuthNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
+    <Auth.Navigator>
+      <Auth.Screen
         name="AuthHome"
         component={AuthHomeScreen}
         options={{
@@ -23,7 +23,7 @@ const AuthNavigator = () => {
         }}
       />
 
-      <Stack.Screen
+      <Auth.Screen
         name="Signin"
         component={SigninScreen}
         options={{
@@ -32,16 +32,16 @@ const AuthNavigator = () => {
         }}
       />
 
-      <Stack.Screen
-        name="MainTabNavigator"
-        component={MainTabNavigator}
+      <Auth.Screen
+        name="DrawerNavigator"
+        component={DrawerNavigator}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
 
-      <Stack.Screen
+      <Auth.Screen
         name="MapScreen"
         component={MapScreen}
         options={{
@@ -49,7 +49,7 @@ const AuthNavigator = () => {
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
-    </Stack.Navigator>
+    </Auth.Navigator>
   );
 };
 

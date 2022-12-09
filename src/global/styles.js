@@ -11,7 +11,8 @@ export const colors = {
   white: '#fff',
   facebookBlue: '#3b5998',
   googleRed: '#de5246',
-  red: '#df1217'
+  red: '#df1217',
+  teal: '#00d8d8'
 };
 
 export const params = {

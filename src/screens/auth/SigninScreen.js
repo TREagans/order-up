@@ -95,7 +95,7 @@ const SigninScreen = ({navigation}) => {
       <View style={{marginHorizontal: 20}}>
         <TouchableOpacity
           style={params.styledButton}
-          onPress={() => navigation.navigate('MainTabNavigator')}
+          onPress={() => navigation.navigate('DrawerNavigator')}
         >
           <Text style={params.styledTitle}>SIGN IN</Text>
         </TouchableOpacity>

@@ -38,6 +38,7 @@ const HomeScreen = ({navigation}) => {
         size={26}
         title="Order Up"
         badgeCount={12}
+        navigation={navigation}
       />
 
       {/* with scrollview we want to identify a header, so we'll */}

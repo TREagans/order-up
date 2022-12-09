@@ -3,8 +3,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import FontAwesome from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 // determine what font library icon is from
 const getIconLibrary = type => {
@@ -24,8 +26,14 @@ const getIconLibrary = type => {
     case 'FontAwesome':
       return FontAwesome;
       break;
+    case 'FontAwesome5':
+      return FontAwesome5;
+      break;
     case 'Entypo':
       return Entypo;
+      break;
+    case 'MaterialIcon':
+      return MaterialIcon;
       break;
     default:
       break;

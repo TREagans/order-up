@@ -15,6 +15,7 @@ const MainHeader = ({leftIcon, rightIcon, ...props}) => {
           type={props.leftType}
           color={props.color}
           size={32}
+          onPress={() => props.navigation.toggleDrawer()}
         />
       </View>
 
